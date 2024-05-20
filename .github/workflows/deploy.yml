@@ -8,7 +8,7 @@ env:
   MONGODB_DB_NAME: gha-demo
 jobs:
   test:
-    environment: testing
+    environment: testing ## This is for setting up environment setting in GHA
     runs-on: ubuntu-latest
     env:
       MONGODB_CLUSTER_ADDRESS: cluster0.pausr5h.mongodb.net
