@@ -12,18 +12,15 @@ jobs:
     runs-on: ubuntu-latest
     env:
       MONGODB_CLUSTER_ADDRESS: cluster0.pausr5h.mongodb.net
-      MONGODB_USERNAME: huythuctran912
-      MONGODB_PASSWORD: gPtRbXuAHvdflYaM 
+      MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
+      MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }} 
       PORT: 8080
     steps:
       - name: Get Code
         uses: actions/checkout@v3
-        with:
-          node-version: 20
       - name: Cache dependencies
         uses: actions/cache@v3
         with:
-          node-version: 20
           path: ~/.npm
           key: npm-deps-${{ hashFiles('**/package-lock.json') }}
       - name: Install dependencies
